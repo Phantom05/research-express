@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include(`${process.cwd()}/views/components/base/head`) %>
+</head>
+<body>
+    <%- include(`${process.cwd()}/views/components/base/template/MypageTemplate`,
+    {
+      header:include(`${process.cwd()}/views/components/common/header`),
+      main:include(`${process.cwd()}/views/components/common/projectDetail/main`),
+      nav:include(`${process.cwd()}/views/components/common/projectDetail/nav`)
+    }) %>
+
+    <script>
+        $('#hello').on('click', function () {
+          alert('hellworod')
+        })
+      </script>
+</body>
+</html>
