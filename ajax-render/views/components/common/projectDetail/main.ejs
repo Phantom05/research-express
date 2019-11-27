@@ -1,4 +1,8 @@
 <% var filter = include(`${process.cwd()}/views/components/common/filter`) %>
+<% var post = include(`${process.cwd()}/views/components/common/post/index`) %>
 
-<%- filter %>
+<%- filter %> <br>
+<% for (let i = 0 ; i < 10 ; i ++){%>
+  <%- post %>
+<% } %>
 
