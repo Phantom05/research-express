@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-    <%- include(`${process.cwd()}/views/components/base/template/PlainTemplate`,
-    {
-      header:include(`${process.cwd()}/views/components/common/header`,{hello:"world"}),
-      main:'Main'
-    }) %>
-</body>
-</html>
+<% layout(`/components/base/helpers/layout`) -%>
+<% block('stylesheets').append('<link rel="stylesheet" href="src/style/foo.css">') %>
+<% block('scripts').append('<script src="src/js/foo.js"></script>') %>
+<% block('header').append(include(`${__components}/common/header`)) %>
+
+<% var testTxt = 'Hello Programming'; %>
+
+<%- include(`${__components}/base/template/MainTemplate`,{
+  wow:'Template'
+}) %>
+
+<h1><%= title %></h1>
+
+<% for(let i = 0 ; i < 10; i++){%>
+  <%- include(`${__components}/common/post/index`) %>
+<%} %>

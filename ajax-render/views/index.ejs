@@ -9,74 +9,73 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-  crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
-    <%- include(`${process.cwd()}/views/components/common/header`) %>
+  <%- include(`${process.cwd()}/views/components/common/header`) %>
   <h1><%= title %></h1>
   <p>Welcome to <%= title %></p>
-  
+
 
   <div role="tabpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation " class="<%= tabContent==='오오'&& 'active' %>" id="test">
+        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+      <li role="presentation" class="<%= tabContent==='되나'&& 'active' %>" id="test1">
+        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+      <li role="presentation" class="<%= tabContent==='된다'&& 'active' %>">
+        <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" id="test2">Messages</a></li>
+    </ul>
 
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation " class="<%= tabContent==='오오'&& 'active' %>" id="test">
-          <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li role="presentation" class="<%= tabContent==='되나'&& 'active' %>" id="test1">
-          <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-        <li role="presentation" class="<%= tabContent==='된다'&& 'active' %>">
-          <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" id="test2">Messages</a></li>
-      </ul>
-    
-      <!-- Tab panes -->
-      <div class="tab-content" id="testContent">
-        <div role="tabpanel" class="tab-pane <%= tabContent==='오오'&& 'active' %>" id="home">
-            <%if(tabContent==='오오'){ %>
-              <h1>Info</h1>
-              <% } %>
-        </div>
-        <div role="tabpanel" class="tab-pane <%= tabContent==='되나'&& 'active' %>" id="profile">
-            <%if(tabContent==='되나'){ %>
-              <h1>Policy</h1>
-              <% } %>
-        </div>
-        <div role="tabpanel" class="tab-pane <%= tabContent==='된다'&& 'active' %>" id="messages">
-            <%if(tabContent==='된다'){ %>
-              <h1>Review</h1>
-              <% list.map(list =>{ %>
-              <div><%= list.title %></div>
-              <% }) %>
-            <% } %>
-        </div>
-
-        <a href="">About</a>
+    <!-- Tab panes -->
+    <div class="tab-content" id="testContent">
+      <div role="tabpanel" class="tab-pane <%= tabContent==='오오'&& 'active' %>" id="home">
+        <%if(tabContent==='오오'){ %>
+        <h1>Info</h1>
+        <% } %>
+      </div>
+      <div role="tabpanel" class="tab-pane <%= tabContent==='되나'&& 'active' %>" id="profile">
+        <%if(tabContent==='되나'){ %>
+        <h1>Policy</h1>
+        <% } %>
+      </div>
+      <div role="tabpanel" class="tab-pane <%= tabContent==='된다'&& 'active' %>" id="messages">
+        <%if(tabContent==='된다'){ %>
+        <h1>Review</h1>
+        <% list.map(list =>{ %>
+        <div><%= list.title %></div>
+        <% }) %>
+        <% } %>
       </div>
 
+      <a href="">About</a>
     </div>
 
-    <!-- <button id="testBtn">test</button>
+  </div>
+
+  <!-- <button id="testBtn">test</button>
     <button id="testBtn1">test1</button>
     <button id="testBtn2">test2</button> -->
   <script>
-
-
-var matches = document.querySelectorAll("*:not(html):not(head):not(script):not(meta):not(link)");
-console.log(matches);
+    var matches = document.querySelectorAll("*:not(html):not(head):not(script):not(meta):not(link)");
+    console.log(matches);
 
     let a = 0;
     document.getElementById('test').addEventListener('click', function (e) {
-      if(a ==0){
-        a++  ;
+      if (a == 0) {
+        a++;
         axios.post('/user', {
             title: 'Success',
             tabContent: '오오'
           })
-          .then(function ({data}) {
+          .then(function ({
+            data
+          }) {
             $('body').html(data);
             // document.body.innerHTML = 
           })
@@ -86,15 +85,17 @@ console.log(matches);
       }
     })
     document.getElementById('test1').addEventListener('click', function (e) {
-      if(a ==0){
-        a++;  
+      if (a == 0) {
+        a++;
         axios.post('/user', {
             title: 'Success',
             tabContent: '되나'
           })
-          .then(function ({data}) {
+          .then(function ({
+            data
+          }) {
             $('body').html(data)
-  
+
           })
           .catch(function (error) {
             console.log(error);

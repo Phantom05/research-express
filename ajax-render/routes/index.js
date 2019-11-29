@@ -19,8 +19,6 @@ router.post('/user', function(req, res, next) {
    res.render('index', { title: req.body.title ,tabContent,list});
 });
 
-
-
 router.route('/test/:type')
 .get(function(req, res, next) {
   let cashData = req.session.cashData || {};
@@ -51,7 +49,9 @@ router.route('/test/:type')
   // res.render('index', { title: 'Express',tabContent:'' });
 });
 
+
 router.get('/about', function(req, res, next) {
+  console.log('/about');
   res.render('pages/about', { title: 'Express',tabContent:'' });
 });
 

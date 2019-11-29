@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOF</title>
+    <%- include head.ejs %>
+    <%- block('head').toString() %>
+    <%- block('stylesheets').toString() %>
+  </head>
+  <body>
+    <%- block('header').toString() %>
+    <main>
+      <%-body -%>
+    </main>
+    <%- block('footer').toString() %>
+    <%- include foot.ejs %>
+    <%- block('scripts').toString() %>
+  </body>
+</html> 
