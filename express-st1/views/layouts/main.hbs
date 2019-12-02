@@ -1,15 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>Example App</title>
+  <title>
+    {{#if title}}
+    {{title}}
+    {{else}}
+    Base Page Title
+    {{/if}}
+
+  </title>
+      {{> base/head }}
 </head>
+
 <body>
-  <hr>
-  {{> header }}
-  <hr>
-  {{{body}}}
-  <hr>
-  {{> footer }}
+<header>{{{block 'header'}}}</header>
+  <main>
+    {{{body}}}
+  </main>
+{{{block 'footer'}}}
+{{> base/foot }}
+{{{block 'scripts'}}}
 </body>
+
 </html>

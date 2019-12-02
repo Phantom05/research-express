@@ -1,35 +1,28 @@
 import createError from 'http-errors';
-
-
 import express   from 'express';
 import path   from 'path';
 import cookieParser   from 'cookie-parser';
 import logger   from 'morgan';
-import hbs   from 'express-handlebars';
-import session   from 'express-session';
+import exphbs   from 'express-handlebars';
+import {helpers} from './views/base/helpers';
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-// view engine setup
-app.engine('hbs', hbs({
+var hbs = exphbs.create({
   extname: 'hbs',
   defaultLayout: 'main',
   layoutsDir: __dirname + '/views/layouts/',
-  partialsDir: __dirname + '/views/partials/'
-}));
+  partialsDir: __dirname + '/views/partials/',
+  helpers:helpers,
+});
 
-// app.use(session({
-//   resave: false,
-//   saveUninitialized: false,
-//   secret: process.env.COOKIE_SECRET,
-//   cookie: {
-//     httpOnly: true,
-//     secure: false,
-//   },
-// }));
+console.log(helpers,'helpers');
+
+app.engine('hbs', hbs.engine);
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs'); // handlebars파일의 확장자를 hbs로 사용.
