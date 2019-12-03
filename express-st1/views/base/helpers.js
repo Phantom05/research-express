@@ -1,4 +1,7 @@
 var helpers = require('handlebars-helpers')();
+var minifyHTML = require('html-minifier').minify;
+var _          = require('lodash');
+
 const {block,extend} =blockExtend();
 
 function blockExtend() {
@@ -34,6 +37,16 @@ function setVariable(varName, varValue, options){
   options.data.root[varName] = varValue;
 };
 
+function isNull(v1, options) {
+  if(v1) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+}
+
+
+
+helpers.isNull      = isNull;
 helpers.setVariable = setVariable;
 helpers.ifCond      = ifCond;
 helpers.block       = block;

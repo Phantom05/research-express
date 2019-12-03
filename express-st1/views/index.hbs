@@ -1,29 +1,36 @@
-끙..
-
 {{setVariable "thisVar" "Contents Here"}}
 
 {{#extend "header"}}
-    Header
+{{> header}}
 {{/extend}}
 
 {{#extend "scripts"}}
-    <script>console.log('wow');</script>
+<script>console.log('wow');</script>
 {{/extend}}
+
 {{after person 2}}
 <hr>
 {{#if true}}
-  in IF
+in IF
 {{else}}
-  in Else
+in Else
 {{/if}}
-
-
-
 {{#ifCond v1 v2}}
-    is equal to 
+is equal to
 {{else}}
-    is not equal to 
+is not equal to
 
 {{/ifCond}}
 
 {{thisVar}}
+
+
+<hr>
+{{#isNull v1}}
+is equal to
+{{else}}
+is not equal to
+
+{{/isNull}}
+
+{{> header}}
