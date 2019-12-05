@@ -6,16 +6,19 @@ import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
 import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
+import minifyejs from 'gulp-minify-ejs';
 
 const reload = browserSync.reload;
 const _path = {
   src: {
+    pages:"./views/**/*.{ejs,html}",
     js: "./public/src/js/**/*.js",
-    scss:"./public/src/scss/**/*.{scss,css}",
+    scss: "./public/src/scss/**/*.{scss,css}",
   },
   dist: {
+    pages:"./public/dist/pages",
     js: "./public/dist/js",
-    css:"./public/dist/css",
+    css: "./public/dist/css",
   }
 }
 
@@ -43,7 +46,7 @@ const browserOpts = {
 gulp.task('nodemon', () => {
   let restarted = false;
   browserSync.create();
-  browserSync.init(null,browserOpts);
+  browserSync.init(null, browserOpts);
 
   return nodemon({
     exec: 'babel-node  ./bin/www'
@@ -101,14 +104,22 @@ gulp.task('styles', () => {
     .pipe(gulp.dest(_path.dist.css));
 });
 
+gulp.task('minify-html', function () {
+  return gulp.src(_path.src.pages)
+    .pipe(minifyejs())
+    //.pipe(rename({suffix:".min"}))
+    .pipe(gulp.dest(_path.dist.pages))
+})
+
 const process_default = [
   `nodemon`,
   `scripts`,
   `styles`,
+  // `minify-html`,
   `watch`
 ];
 
 gulp.task(`default`, process_default, () => {
   console.log(`Gulp is running: Development! port : ${browserOpts.port}`);
-  
+
 });
