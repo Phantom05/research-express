@@ -1,1 +1,84 @@
-user_list
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% var headObj = { cssName:"users/project/users_list",title:"DOF - Users List"} %>
+  <%- include(`${process.cwd()}/views/Common/Base/head.ejs`,headObj) %>
+</head>
+
+<body>
+  <%- include(`${process.cwd()}/views/Common/Components/header.ejs`,{headerName:"DOF HOME"}) %>
+  <%- include(`${process.cwd()}/views/Common/Components/menu.ejs`) %>
+  <% let detailLink = `/info/detail/${type}/256/1` %>
+  <% function userListUrl(type) {
+    return function (tabName) {
+      return `/info/detail/project/${type}/${tabName}/256/1`
+    }
+  }%>
+  <% let tabUrl = userListUrl(type) %>
+  <% let pageTitleObj = {
+    pageTopTitle:"Find your partners",
+    pageTopContents:"Lorem ipsum dolor sit amet, consectetur adipiscing incididunt ut labore et dolore magna aliqua"
+  } %>
+  <%- include(`${process.cwd()}/views/Common/Components/page_title_top.ejs`,{pageTitleObj:pageTitleObj}) %>
+  <div hidden class="hidden" id="userType" data-d0-userslist-name="userType" data-d0-userslist-type="<%= type %>"><%= type %></div>
+
+  <div class="container userList" >
+    <div class="row">
+      <div class="col-lg-2 filter__box_con">
+        
+        <h1 class="userList__title"><%= co.firstCharUpper(type) %> List</h1>
+        <!-- sort menu -->
+        <%- include(`${process.cwd()}/views/Common/Components/page_sort_menu.ejs`,{type:"searchSort",pageName:'userList'}) %>
+      </div>
+      <div class="col-lg-10 list__box_con">
+        <div class="userList__box">
+          <div class="userList__lang_presh_con">
+            <div class="userList__lang_presh_box">
+              <!-- langSortForm -->
+              <%- include(`${process.cwd()}/views/Common/Components/page_sort_menu.ejs`,{type:"langSort"}) %>
+              <span class="userList__lang_presh_btn_box" data-refresh-btn data-d0-userslist-name="refreshBtn">
+                <i class="far fa-sync-alt userList__lang_presh_btn_icon"></i>
+              </span>
+            </div>
+          </div>
+          <!-- userList card -->
+
+          <%if (!co.isNull(userList)) { %>
+            <% _.chunk(userList,3).map(list =>{ %>
+              <div class="row padding-none margin-none">
+                <% list.map((info_list,i)=>{ %>
+                  
+
+                  <div class="userList__list_box col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                      <%- include(`${process.cwd()}/views/Common/Components/ProfileCard.ejs`,{
+                        info_list:info_list
+                      }) %>
+                      <%#- include(`${process.cwd()}/views/Common/Components/page_user_list_card.ejs`,{
+                        pageName:'userList',
+                        type:type,
+                        info_list:info_list,
+                      }) %>
+                  </div>
+              <% }) %>
+              </div>
+            <% }) %>
+          <% } %>
+        </div>
+        
+        <div class="row">
+          <div data-page-name="<%= type %>" hidden></div>
+          <div class="userList__pagination col-lg-12">
+              <form action="" id="pageForm" data-d0-page-pagination="userslist" data-page-info="<%= JSON.stringify(pagingData) %>"></form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <%- include(`${process.cwd()}/views/Common/Components/footer.ejs`) %>
+  <% var footObj = { scriptName:"users/project/users_list" } %>
+  <%- include(`${process.cwd()}/views/Common/Base/foot.ejs`,footObj) %>
+</body>
+
+</html>
