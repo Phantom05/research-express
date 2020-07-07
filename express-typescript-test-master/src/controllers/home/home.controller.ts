@@ -1,16 +1,20 @@
-import * as express from "express";
-// import * as moment from "moment";
+import express from "express";
 import { database } from "../../database/mysql";
-// import { convertObjectToCommaString } from "../../lib/utils";
+import { convertObjectToCommaString } from "../../lib/utils";
 import { sql } from "../../lib/sql";
-// import { v4 as uuid4 } from "uuid";
+// import { test2 } from "~/lib/sql";
+import { Test, test1 } from "~/lib/test";
 import { Request, Response } from "express";
 import { IControllerBase } from "~/interfaces/IControllerBase.interface";
+import { v4 as uuid4 } from "uuid";
+import moment from "moment";
 
-// interface res {
-//   error?: object;
-//   affectedRows?: number;
-// }
+console.log(test1(), "QueryProps");
+
+interface responseProps {
+  error?: object;
+  affectedRows?: number;
+}
 
 // interface routeProp {
 //   get: () => any;
@@ -51,27 +55,29 @@ export class HomeController implements IControllerBase {
     };
     res.json(body);
   };
-  // insert = async (req: Request, res: Response) => {
-  //   const userCode = uuid4().replace(/\-/g, "");
-  //   const createAt = moment().unix();
-  //   const { email, password } = req.body;
-  //   const convertFormat = {
-  //     email,
-  //     password,
-  //     userCode,
-  //     createAt,
-  //   };
-  //   const { keys, values } = convertObjectToCommaString(convertFormat);
+  insert = async (req: Request, res: Response) => {
+    const userCode = uuid4().replace(/\-/g, "");
+    const createAt = moment().unix();
+    const { email, password } = req.body;
+    const convertFormat = {
+      email,
+      password,
+      userCode,
+      createAt,
+    };
+    const { keys, values } = convertObjectToCommaString(convertFormat);
 
-  //   const data: res = await database.query(sql.insertUser({ keys, values }));
+    const data: responseProps = await database.query(
+      sql.insertUser({ keys, values })
+    );
 
-  //   if (!!data.affectedRows) {
-  //     const rows: any = await database.query(sql.getUser({ userCode }));
-  //     res.json({ result: 1, ...rows[0] });
-  //   } else {
-  //     res.json({ result: 2 });
-  //   }
-  // };
+    if (!!data.affectedRows) {
+      const rows: any = await database.query(sql.getUser({ userCode }));
+      res.json({ result: 1, ...rows[0] });
+    } else {
+      res.json({ result: 2 });
+    }
+  };
 }
 
 // export default HomeController;

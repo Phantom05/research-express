@@ -40,3 +40,4 @@ class Database {
 }
 
 export const database = new Database(databaseConfig);
+// export default new Database(databaseConfig);

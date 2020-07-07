@@ -23,30 +23,92 @@
 // "moduleResolution": "node",
 // "outDir": "./build",
 
+// {
+//   "compilerOptions": {
+//     "outDir": "./dist",
+//     "sourceMap": true,
+//     "strict": true,
+//     "noImplicitReturns": true,
+//     "noImplicitAny": true,
+//     "module": "es6",
+//     "lib": ["es6", "es7", "dom"],
+//     "moduleResolution": "node",
+//     "removeComments": true,
+//     "target": "es5",
+//     "declaration": false,
+//     "noUnusedLocals": true,
+//     "experimentalDecorators": true,
+//     "allowJs": true,
+//     "jsx": "react",
+//     "allowSyntheticDefaultImports": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "~/*": ["./src/*"],
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": ["src/**/*"],
+//   "exclude": ["node_modules"]
+// }
+
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "esModuleInterop": true,
+//     "target": "es6",
+//     "noImplicitAny": true,
+//     "moduleResolution": "node",
+//     "sourceMap": true,
+//     "outDir": "dist",
+//     "baseUrl": ".",
+//     "paths": {
+//       "*": ["node_modules/*"],
+//       "~/*": ["./src/*"],
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": ["src/**/*"]
+// }
+
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "target": "es6",
+//     "noImplicitAny": true,
+//     "moduleResolution": "node",
+//     "sourceMap": true,
+//     "outDir": "dist",
+//     "baseUrl": ".",
+//     "paths": {
+//       "*": ["node_modules/*", "src/types/*"],
+//       "~/*": ["./src/*"],
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": ["src/**/*"]
+// }
+
 {
+  "version": "2.4.2",
   "compilerOptions": {
-    "outDir": "./dist",
-    "sourceMap": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "lib": ["es6", "es7", "dom"],
+    "lib": ["es5", "es6"],
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true,
     "moduleResolution": "node",
-    "removeComments": true,
-    "target": "es5",
-    "declaration": false,
-    "noUnusedLocals": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowJs": true,
-    "jsx": "react",
     "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
+      "*": ["node_modules/*", "src/types/*"],
       "~/*": ["./src/*"],
       "@/*": ["./*"]
     }
   },
-  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

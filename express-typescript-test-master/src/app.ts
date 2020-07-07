@@ -1,8 +1,8 @@
-import * as express from "express";
-import * as cors from "cors";
+import express from "express";
+import cors from "cors";
 import { Application } from "express";
 
-export class Appp {
+class App {
   public app: Application;
   public port: number;
 
@@ -49,4 +49,4 @@ export class Appp {
   }
 }
 
-// export default App;
+export default App;

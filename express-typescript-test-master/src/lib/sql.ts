@@ -1,7 +1,9 @@
-interface QueryProps {
+export interface QueryProps {
   intialize(): any;
 }
-
+export function test2() {
+  return "2";
+}
 class Sql implements QueryProps {
   database: string;
 
@@ -20,10 +22,11 @@ class Sql implements QueryProps {
   getUser({ userCode }) {
     return `SELECT * FROM test.users WHERE usercode="${userCode}" `;
   }
-
-  // select() {}
 }
 
 export const sql = new Sql({
   database: "test",
 });
+module services {}
+
+export default services;
