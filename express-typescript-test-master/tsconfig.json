@@ -1,18 +1,52 @@
+// {
+//   "compilerOptions": {
+//     "sourceMap": true,
+//     "target": "es6",
+//     "module": "commonjs",
+//     "outDir": "./dist",
+//     "baseUrl": ".",
+//     "allowJs": true,
+//     "moduleResolution": "node",
+//     "allowSyntheticDefaultImports": true,
+//     "paths": {
+//       "~/*": ["./src/*"],
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": ["src/**/*"],
+//   "exclude": ["node_modules"]
+// }
+
+// "lib": ["es5", "es6"],
+// "target": "es5",
+// "module": "commonjs",
+// "moduleResolution": "node",
+// "outDir": "./build",
+
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "target": "es6",
-    "module": "commonjs",
     "outDir": "./dist",
-    "baseUrl": "./src",
-    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "lib": ["es6", "es7", "dom"],
     "moduleResolution": "node",
+    "removeComments": true,
+    "target": "es5",
+    "declaration": false,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"],
       "@/*": ["./*"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

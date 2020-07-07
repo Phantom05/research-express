@@ -8,25 +8,25 @@ export const router = {
   },
 };
 
-export function errorState(rows) {
-  // 2 => 중복
-  console.log(rows);
-  const { code, sqlMessage, errno } = rows.error;
-  if (code === "ER_DUP_ENTRY") {
-    return {
-      result: 2,
-      errMessage: sqlMessage,
-      errno: errno,
-    };
-  }
-}
+// export function errorState(rows) {
+//   // 2 => 중복
+//   console.log(rows);
+//   const { code, sqlMessage, errno } = rows.error;
+//   if (code === "ER_DUP_ENTRY") {
+//     return {
+//       result: 2,
+//       errMessage: sqlMessage,
+//       errno: errno,
+//     };
+//   }
+// }
 
 /**
  * NOTE: object를 insert형식의 keys,values 객체로 반환
  * @param {*} obj
  * @param {*} types
  */
-export function convertObjectToCommaString(obj) {
+export function convertObjectToCommaString(obj: any) {
   return {
     keys: Object.keys(obj).join(", "),
     values: Object.values(obj)
@@ -47,7 +47,7 @@ export function convertObjectToCommaString(obj) {
 //   return removeLastComma(updateString);
 // }
 
-export function removeLastComma(strng) {
+export function removeLastComma(strng: string) {
   var n = strng.lastIndexOf(",");
   var a = strng.substring(0, n);
   return a;

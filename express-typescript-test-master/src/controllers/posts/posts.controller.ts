@@ -1,9 +1,9 @@
 import * as express from "express";
 import { Request, Response } from "express";
 import IPost from "./post.interface";
-import IControllerBase from "interfaces/IControllerBase.interface";
+import { IControllerBase } from "src/interfaces/IControllerBase.interface";
 
-class PostsController implements IControllerBase {
+export class PostsController implements IControllerBase {
   public path = "/posts";
   public router = express.Router();
 
@@ -50,4 +50,4 @@ class PostsController implements IControllerBase {
   };
 }
 
-export default PostsController;
+// export default PostsController;

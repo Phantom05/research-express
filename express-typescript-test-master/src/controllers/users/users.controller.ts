@@ -1,8 +1,8 @@
 import * as express from "express";
 import { Request, Response } from "express";
-import IControllerBase from "interfaces/IControllerBase.interface";
+import { IControllerBase } from "src/interfaces/IControllerBase.interface";
 
-class HomeController implements IControllerBase {
+export class UsersController implements IControllerBase {
   public path = "/users";
   public router = express.Router();
 
@@ -40,4 +40,4 @@ class HomeController implements IControllerBase {
   };
 }
 
-export default HomeController;
+// export default HomeController;
