@@ -1,0 +1,68 @@
+// {
+//   "compilerOptions": {
+//     "lib": ["es5", "es6"],
+//     "target": "es5",
+//     "module": "commonjs",
+//     "moduleResolution": "node",
+//     "outDir": "./build",
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "sourceMap": true,
+//     "allowSyntheticDefaultImports": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "~/*": ["./src/*"],
+//       "@/*": ["./*"]
+//     }
+//   }
+// }
+
+// {
+//   "compilerOptions": {
+//     "outDir": "./build/",
+//     "sourceMap": true,
+//     "strict": true,
+//     "noImplicitReturns": true,
+//     "noImplicitAny": true,
+//     "lib": ["es6", "es7", "dom"],
+//     "moduleResolution": "node",
+//     "module": "commonjs",
+//     "removeComments": true,
+//     "target": "es5",
+//     "declaration": false,
+//     "noUnusedLocals": true,
+//     "experimentalDecorators": true,
+//     "allowJs": true,
+//     "jsx": "react",
+//     "allowSyntheticDefaultImports": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "~/*": ["./src/*"],
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": ["./src/**/*"],
+//   "exclude": ["build", "node_modules"]
+// }
+
+//     "module": "es6",
+
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./*"],
+      "*": ["node_modules/*", "src/types/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

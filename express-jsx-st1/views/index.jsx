@@ -13,15 +13,6 @@ class Test extends Component {
 }
 
 class Home extends Component {
-  constructor(){
-    super()
-  }
-  state={
-    
-  }
-  handleClick =()=>{
-
-  }
 
   render() {
     const { props } = this;
