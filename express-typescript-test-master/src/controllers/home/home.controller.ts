@@ -1,25 +1,27 @@
 import express from "express";
 import { database } from "../../database/mysql";
 import { convertObjectToCommaString } from "../../lib/utils";
-import { sql } from "../../lib/sql";
-// import { test2 } from "~/lib/sql";
-import { Test, test1 } from "~/lib/test";
+import { sql } from "@/src/lib/sql";
 import { Request, Response } from "express";
 import { IControllerBase } from "~/interfaces/IControllerBase.interface";
+
+// DEBUG:
+import { hello } from "../../lib/test";
+// import { hello } from "~/lib/test";
+import { fast } from "~/fast/test";
+// import { fast } from "../../fast/test";
+// DEBUG:
+
 import { v4 as uuid4 } from "uuid";
 import moment from "moment";
 
-console.log(test1(), "QueryProps");
+console.log(hello());
+console.log(fast());
 
 interface responseProps {
   error?: object;
   affectedRows?: number;
 }
-
-// interface routeProp {
-//   get: () => any;
-//   post: () => any;
-// }
 export class HomeController implements IControllerBase {
   public path = "/";
   public router = express.Router();

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts",
+    "test": "nodemon --exec ts-node app/main.ts",
+    "dev": " ts-node --project ./tsconfig.json -r tsconfig-paths/register src/server.ts",
+
     "start": "ts-node dist/server.js",
     "build": "tsc -p ."
   },
@@ -30,6 +32,8 @@
     "@types/moment": "^2.13.0",
     "@types/mysql": "^2.15.14",
     "@types/node": "^12.7.8",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "tsconfig-paths": "^3.9.0",
+    "tslib": "^2.0.0"
   }
 }

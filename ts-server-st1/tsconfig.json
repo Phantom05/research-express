@@ -1,0 +1,53 @@
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "esModuleInterop": true,
+//     "target": "es6",
+//     "moduleResolution": "node",
+//     "sourceMap": true,
+//     "outDir": "dist",
+//     // "rootDirs": ["src"],
+//     "baseUrl": ".",
+//     "paths": {
+//       // "*": ["node_modules/*", "src/*"],
+//       "~/*": ["src/*"],
+//       "@/*": ["src/*"]
+//     }
+//   },
+//   "lib": ["es2015"]
+// }
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "module": "commonjs",
+//     "lib": ["es6"],
+//     "allowJs": true,
+//     "outDir": "build",
+//     "rootDir": "src",
+//     "strict": true,
+//     "noImplicitAny": true,
+//     "esModuleInterop": true,
+//     "resolveJsonModule": true
+//   }
+// }
+
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "outDir": "dist",
+    // "noEmit": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      // "*": ["node_modules/*", "src/*"],
+      "~/*": ["src/*"],
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["./src/**/*"]
+}
