@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec ts-node app/main.ts",
+    "test": "node -r ./tsconfig-paths-bootstrap.js src/server.js",
     "dev": " ts-node --project ./tsconfig.json -r tsconfig-paths/register src/server.ts",
-
     "start": "ts-node dist/server.js",
     "build": "tsc -p ."
   },
